@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -26,15 +29,15 @@ private Button dButton, tButton, bookbutton, backbutton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_app);
-        textView= findViewById(R.id.textView2);
-        editText1= findViewById(R.id.editTextFullName);
-        editText2=findViewById(R.id.editTextBookAddress);
-        editText3=findViewById(R.id.editTextContactNumber);
-        editText4=findViewById(R.id.editTextFees);
-        dButton=findViewById(R.id.buttonAppDate);
-        tButton=findViewById(R.id.buttonAppTime);
-        bookbutton=findViewById(R.id.buttonBookAppointment);
-        backbutton=findViewById(R.id.buttonBookBack);
+        textView = findViewById(R.id.textView2);
+        editText1 = findViewById(R.id.editTextFullName);
+        editText2 = findViewById(R.id.editTextBookAddress);
+        editText3 = findViewById(R.id.editTextContactNumber);
+        editText4 = findViewById(R.id.editTextFees);
+        dButton = findViewById(R.id.buttonAppDate);
+        tButton = findViewById(R.id.buttonAppTime);
+        bookbutton = findViewById(R.id.buttonBookAppointment);
+        backbutton = findViewById(R.id.buttonBookBack);
         editText1.setKeyListener(null);
         editText2.setKeyListener(null);
         editText3.setKeyListener(null);
@@ -43,14 +46,14 @@ private Button dButton, tButton, bookbutton, backbutton;
         String title = it.getStringExtra("text1");
         String full = it.getStringExtra("text2");
         String add = it.getStringExtra("text3");
-        String cont= it.getStringExtra("text4");
+        String cont = it.getStringExtra("text4");
         String fees = it.getStringExtra("text5");
 
         textView.setText(title);
         editText1.setText(full);
         editText2.setText(add);
         editText3.setText(cont);
-        editText4.setText("Cons Fees:" +fees+"/-");
+        editText4.setText("Cons Fees:" + fees + "/-");
         initDatePicker();
         dButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +61,7 @@ private Button dButton, tButton, bookbutton, backbutton;
                 datePickerDialog.show();
             }
         });
-         initTimePicker();
+        initTimePicker();
         tButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,16 +71,18 @@ private Button dButton, tButton, bookbutton, backbutton;
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BookAppActivity.this,FindDocActivity.class));
+                startActivity(new Intent(BookAppActivity.this, FindDocActivity.class));
             }
         });
         bookbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
             }
         });
     }
+
     private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
