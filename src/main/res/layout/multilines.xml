@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/Line_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "TextView"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:textSize="17sp" />
+    <TextView
+        android:id="@+id/Line_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "TextView"
+        android:textColor="@color/teal_200"
+        android:textSize="15sp" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+        <TextView
+            android:id="@+id/Line_c"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:text = "TextView"
+            android:textColor="@color/teal_200"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/Line_d"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text = "TextView"
+            android:textColor="@color/teal_200"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/Line_e"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text = "TextView"
+            android:textColor="@color/teal_200"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
